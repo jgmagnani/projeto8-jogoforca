@@ -2,25 +2,33 @@ import styled from "styled-components"
 
 
 export default function Jogo(props){
-const {imagem, sortearPalavra, arrayRenderizado} = props;
+const {img, contagemErro, sortearPalavra, arrayRenderizado, resposta, acertou} = props;
+
    
     return (
-        <>
-          <ImagemForca src={imagem}/>
-          <BotaoEscolherPalavra onClick={sortearPalavra}>Escolher Palavra</BotaoEscolherPalavra>
-          <PalavraRenderiazada>
+        <Forca>
+          <ImagemForca src={img[contagemErro]} alt="" data-test="game-image"/> 
+          <BotaoEscolherPalavra onClick={sortearPalavra} data-test="choose-word">Escolher Palavra</BotaoEscolherPalavra>
+          <PalavraRenderiazada data-answer={resposta} data-test="word" className={!acertou ? "" : "acertou"}>
             {arrayRenderizado}
           </PalavraRenderiazada>
-        </>
+        </Forca>        
     );
 }
+
+const Forca = styled.div`    
+    .acertou{
+        color:#27ae60;
+    }
+    
+`;
 
 const ImagemForca = styled.img`
     width: 400px;
     position: absolute;
     left: 38px;
     top: 59px;
-`;
+`
 
 const BotaoEscolherPalavra = styled.button`
     height: 60px;
@@ -43,5 +51,5 @@ const PalavraRenderiazada = styled.div`
     font-size: 50px;
     position: absolute;
     right: 61px;
-    bottom: 340px;
+    bottom: 340px;    
 `

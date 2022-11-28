@@ -1,13 +1,19 @@
 import styled from "styled-components";
 
 export default function Letras(props) {
-    const {alfabeto, desabilitado} = props;
+    const {alfabeto, desabilitado, letraSelecionada, setLetrasSelecionadas, letrasSelecionadas} = props;
 
+    function clicado(letra) {
+        if (!letrasSelecionadas.includes(letra)) {
+            setLetrasSelecionadas([...letrasSelecionadas, letra]);
+            letraSelecionada(letra)
+          }
+    }
 
     return (
         <LetrasAlfabeto>
             {alfabeto.map((alfabeto) => (
-                <button disabled={desabilitado} className={desabilitado ? "desabilitado" : ""}>
+                <button disabled={desabilitado} className={desabilitado ? "desabilitado" : ""} onClick={() => clicado(alfabeto)}>
                     {alfabeto.toUpperCase()}
                 </button>
             )
