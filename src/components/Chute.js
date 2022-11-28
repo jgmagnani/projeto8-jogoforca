@@ -1,10 +1,17 @@
 import styled from "styled-components";
 
-export default function Chute(){
+export default function Chute(props){
+    const {inputChute,desabilitado} = props;
+
+
     return(
         <DivChute>
-            <input placeholder=""/>
-            <button>Chutar</button>
+            <input 
+            disabled={desabilitado} 
+            placeholder={inputChute} 
+            className={desabilitado ? "desabilitado" : ""}
+            />
+            <button className={desabilitado ? "desabilitado" : ""}>Chutar</button>
         </DivChute>
     );
 }
@@ -32,6 +39,17 @@ const DivChute = styled.div`
         background-color: #E1ECF4;
         border: 1px solid #7AA7C7;
         color: #3C76A1;
+        :hover{
+            cursor: pointer;
+            opacity: 0.9;
+        }
+    }
+    .desabilitado{
+        background: #9FAAB5;
+        :hover{
+            cursor: default;
+            opacity: 1;
+        }
     }
     
 `

@@ -1,17 +1,15 @@
 import styled from "styled-components";
 
-export default function Letras(props){
-    const alfabeto = props.alfabeto;
-    
+export default function Letras(props) {
+    const {alfabeto, desabilitado} = props;
 
-    return(
+
+    return (
         <LetrasAlfabeto>
             {alfabeto.map((alfabeto) => (
-                
-                    <BotaoAlfabeto>
-                        {alfabeto.toUpperCase()}
-                    </BotaoAlfabeto>
-                
+                <button disabled={desabilitado} className={desabilitado ? "desabilitado" : ""}>
+                    {alfabeto.toUpperCase()}
+                </button>
             )
 
             )}
@@ -19,17 +17,6 @@ export default function Letras(props){
     );
 }
 
-const BotaoAlfabeto = styled.button`
-    width: 40px;
-    height: 40px;
-    margin-right: 12px;
-    margin-bottom: 15px;
-    border-radius: 3px;
-    border: 1px solid #7AA7C7;
-    color: #3C76A1;
-    background-color: #E1ECF4;
-    font-size: 16px; 
-`
 
 const LetrasAlfabeto = styled.div`
     width: 685px;
@@ -37,5 +24,29 @@ const LetrasAlfabeto = styled.div`
     flex-wrap: wrap;
     position: absolute;
     bottom: 152px;
-    left: 211px;    
+    left: 211px;
+    button{
+        width: 40px;
+        height: 40px;
+        margin-right: 12px;
+        margin-bottom: 15px;
+        border-radius: 3px;
+        border: 1px solid #7AA7C7;
+        color: #3C76A1;
+        background-color: #E1ECF4;
+        font-size: 16px;
+        :hover{
+            cursor: pointer;
+            opacity: 0.9;
+        }
+        
+    }
+    .desabilitado{
+        background: #9FAAB5;
+        :hover{
+            cursor: default;
+            opacity: 1;
+        }
+    }
 `
+
