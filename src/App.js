@@ -8,22 +8,21 @@ import { useState } from 'react';
 
 const alfabeto = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
-const imagens = [
-  "./assets/forca0.png",
-  "./assets/forca1.png",
-  "./assets/forca2.png",
-  "./assets/forca3.png",
-  "./assets/forca4.png",
-  "./assets/forca5.png",
-  "./assets/forca6.png"
-];
-
 function App() {
 
+  const imagens = [
+    "./assets/forca0.png",
+    "./assets/forca1.png",
+    "./assets/forca2.png",
+    "./assets/forca3.png",
+    "./assets/forca4.png",
+    "./assets/forca5.png",
+    "./assets/forca6.png"
+  ];
   
 
   const [contagemErro, setcontagemErro] = useState(0);
-  const [desabilitado, setdesabilitado] = useState(true)
+  const [desabilitado, setdesabilitado] = useState(true);
   const [resposta, setResposta] = useState("");
   const [arrayPalavra, setArrayPalavra] = useState([]);
   const [arrayRenderizado, setArrayRenderizado] = useState("");
