@@ -13,7 +13,7 @@ export default function Letras(props) {
     return (
         <LetrasAlfabeto>
             {alfabeto.map((alfabeto) => (
-                <button disabled={desabilitado} className={desabilitado ? "desabilitado" : ""} onClick={() => clicado(alfabeto)}>
+                <button disabled={desabilitado} className={desabilitado ? "desabilitado" : ""} onClick={() => clicado(alfabeto)} data-test="letter">
                     {alfabeto.toUpperCase()}
                 </button>
             )

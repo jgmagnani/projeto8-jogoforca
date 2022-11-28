@@ -24,8 +24,9 @@ export default function Chute(props){
                 className={desabilitado ? "desabilitado" : ""}
                 onChange={(e)=>setChute(e.target.value)}
                 value={chute}
+                data-teste="guess-input"
             />
-            <button className={desabilitado ? "desabilitado" : ""} onClick={tentativa}>
+            <button className={desabilitado ? "desabilitado" : ""} onClick={tentativa} data-test="guess-button">
                 Chutar
             </button>
         </DivChute>
